@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/menu_bckg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bckg_menu" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_exit"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/btn_stroke_press_wh_back"
+        android:onClick="extClick"
+        android:text="Выйти"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/cont1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/cont2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_stroke_press_wh"
+                android:onClick="gameClick"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Играть" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_stroke_press_wh"
+                android:onClick="mapClick"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Открыть карту" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_inf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_stroke_press_wh"
+                android:onClick="infClick"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Учить " />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
