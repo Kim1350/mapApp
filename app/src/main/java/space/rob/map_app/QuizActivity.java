@@ -21,9 +21,9 @@ public class QuizActivity extends AppCompatActivity {
         richPathView.setOnPathClickListener(new RichPath.OnPathClickListener() {
             @Override
             public void onClick(RichPath richPath) {
-                if (richPath.getName().equals("Mirny")) {
+                if (richPath.getName().equals("Region_16")) {
                     RichPathAnimator.animate(richPath)
-                            .fillColor((255 & 0xff) << 24 | (255 & 0xff) << 16 | (0 & 0xff) << 8 | (0 & 0xff))
+                            .fillColor((255 & 0xff) << 24 | (128 & 0xff) << 16 | (50 & 0xff) << 8 | (50 & 0xff))
                             .start();
                 }
             }
