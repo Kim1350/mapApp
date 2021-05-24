@@ -1,0 +1,18 @@
+.t1
+{
+  padding: 10px;
+}
+.btn
+{
+  color: black;
+  border-radius: 5px;
+  border-color: #FF7700;
+  background: #85C2F3;
+  padding: 3px;
+  outline: none;
+  text-decoration: none;
+}
+.btn:active
+{
+  background-color: #C7E6FF;
+}

@@ -57,6 +57,14 @@ public class Menu extends Activity {
 
     public void infClick(View view) {
 
+        try {
+
+            Intent intent = new Intent(Menu.this,Info.class);
+            startActivity(intent);
+            finish();
+        } catch (Exception e){
+
+        }
     }
 
     //Систетмная кнопка
