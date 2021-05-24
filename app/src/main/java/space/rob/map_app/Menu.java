@@ -33,7 +33,14 @@ public class Menu extends Activity {
     }
 
     public void gameClick(View view) {
+        try {
 
+            Intent intent = new Intent(Menu.this, QuizActivity.class);
+            startActivity(intent);
+            finish();
+        } catch (Exception e){
+
+        }
     }
 
     public void mapClick(View view) {
