@@ -51,13 +51,31 @@ public class QuizActivity extends Activity {
             @Override
             public void onClick(RichPath richPath) {
                 if (richPath.getName().equals(regionNumbers[randomNumber])) {
-                    RichPathAnimator.animate(richPath)
-                            .fillColor((255 & 0xff) << 24 | (50 & 0xff) << 16 | (128 & 0xff) << 8 | (50 & 0xff))
-                            .start();
+                    if(richPath.getName().equals("Region_6")) {
+                        for(int i = 0; i < 15; i++) {
+                            RichPath richPathRegion6 = richPathView.findRichPathByIndex(i);
+                            RichPathAnimator.animate(richPathRegion6)
+                                    .fillColor((255 & 0xff) << 24 | (50 & 0xff) << 16 | (128 & 0xff) << 8 | (50 & 0xff))
+                                    .start();
+                        }
+                    } else {
+                        RichPathAnimator.animate(richPath)
+                                .fillColor((255 & 0xff) << 24 | (50 & 0xff) << 16 | (128 & 0xff) << 8 | (50 & 0xff))
+                                .start();
+                    }
                 } else if (!richPath.getName().equals(regionNumbers[randomNumber])) {
-                    RichPathAnimator.animate(richPath)
-                            .fillColor((255 & 0xff) << 24 | (128 & 0xff) << 16 | (50 & 0xff) << 8 | (50 & 0xff))
-                            .start();
+                    if(richPath.getName().equals("Region_6")) {
+                        for(int i = 0; i < 15; i++) {
+                            RichPath richPathRegion6 = richPathView.findRichPathByIndex(i);
+                            RichPathAnimator.animate(richPathRegion6)
+                                    .fillColor((255 & 0xff) << 24 | (128 & 0xff) << 16 | (50 & 0xff) << 8 | (50 & 0xff))
+                                    .start();
+                        }
+                    } else {
+                        RichPathAnimator.animate(richPath)
+                                .fillColor((255 & 0xff) << 24 | (128 & 0xff) << 16 | (50 & 0xff) << 8 | (50 & 0xff))
+                                .start();
+                    }
                 }
             }
         });
