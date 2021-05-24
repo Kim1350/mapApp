@@ -62,7 +62,7 @@ public class QuizActivity extends Activity {
                     canClick = false;
                     txtPlayAgain.setText("Поздравляем! Вы нашли " + regions[randomNumber] +"! Хотите сыграть еще раз?");
                     constraintLayout.setVisibility(View.VISIBLE);
-
+                    textView.setVisibility(View.GONE);
 
                     if(richPath.getName().equals("Region_6")) {
                         for(int i = 0; i < 15; i++) {
