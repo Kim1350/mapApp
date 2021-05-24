@@ -12,6 +12,24 @@ public class QuizActivity extends AppCompatActivity {
 
     RichPathView richPathView;
 
+    String[] regionNumbers = {"Region_1", "Region_2", "Region_3", "Region_4",
+            "Region_5", "Region_6", "Region_7", "Region_8", "Region_9",
+            "Region_10", "Region_11", "Region_12", "Region_13", "Region_14",
+            "Region_15", "Region_16", "Region_17", "Region_18", "Region_19",
+            "Region_20", "Region_21", "Region_22", "Region_23", "Region_24",
+            "Region_25", "Region_26", "Region_27", "Region_28", "Region_29",
+            "Region_30", "Region_31", "Region_32", "Region_32", "Region_33",
+            "Region_34"};
+
+    String[] regions = {"Абыйский", "Алданский", "Аллаиховский", "Амгинский", "Анабарский",
+            "Булунский", "Верхневилюйский", "Верхнеколымский", "Верхоянский", "Вилюйский",
+            "Горный", "Жиганский", "Кобяйский", "Ленский", "Мегино-Кангаласский",
+            "Мирный", "Момский", "Намский", "Нерюнгринский", "Нижеколымский",
+            "Нюрбинский", "Оймяконский", "Олененский", "", "",
+            "", "", "", "", "",
+            "", "", "", "", "",
+            "", "", "", "", ""};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
