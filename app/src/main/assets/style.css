@@ -16,3 +16,8 @@
 {
   background-color: #C7E6FF;
 }
+TD, TH {
+   padding: 3px; /* Поля вокруг содержимого таблицы */
+   border: 1px solid black ; /* Параметры рамки */
+   text-align: left; /* Выравнивание по левому краю */
+  }
