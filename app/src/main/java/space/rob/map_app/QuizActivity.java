@@ -11,6 +11,8 @@ import com.richpathanimator.RichPathAnimator;
 import android.app.Activity;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
+
 
 public class QuizActivity extends Activity {
 
@@ -29,10 +31,9 @@ public class QuizActivity extends Activity {
             "Булунский", "Верхневилюйский", "Верхнеколымский", "Верхоянский", "Вилюйский",
             "Горный", "Жиганский", "Кобяйский", "Ленский", "Мегино-Кангаласский",
             "Мирный", "Момский", "Намский", "Нерюнгринский", "Нижеколымский",
-            "Нюрбинский", "Оймяконский", "Олененский", "", "",
-            "", "", "", "", "",
-            "", "", "", "", "",
-            "", "", "", "", ""};
+            "Нюрбинский", "Оймяконский", "Оленекский", "Олекминский", "Среднеколымский",
+            "Сунтарский", "Таттинский", "Томпонский", "Усть-Алданский", "Усть-Майский",
+            "Усть-Янский", "Хангаласский", "Чурапчинский", "Эвено-Бытантайский"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +41,20 @@ public class QuizActivity extends Activity {
         setContentView(R.layout.activity_quiz);
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        TextView textView = findViewById(R.id.txtNextRegion);
+        int randomNumber = (int)((Math.random() * (34 - 0)) + 0);
+        textView.setText(regions[randomNumber]);
+
         richPathView = findViewById(R.id.map);
         richPathView.setOnPathClickListener(new RichPath.OnPathClickListener() {
             @Override
             public void onClick(RichPath richPath) {
-                if (richPath.getName().equals("Region_16")) {
+                if (richPath.getName().equals(regionNumbers[randomNumber])) {
+                    RichPathAnimator.animate(richPath)
+                            .fillColor((255 & 0xff) << 24 | (50 & 0xff) << 16 | (128 & 0xff) << 8 | (50 & 0xff))
+                            .start();
+                } else if (!richPath.getName().equals(regionNumbers[randomNumber])) {
                     RichPathAnimator.animate(richPath)
                             .fillColor((255 & 0xff) << 24 | (128 & 0xff) << 16 | (50 & 0xff) << 8 | (50 & 0xff))
                             .start();
