@@ -7,9 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintLayoutStates;
 
 public class Menu extends Activity {
 
@@ -20,16 +26,30 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
-
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
     }
-
-
     public void extClick(View view) {
-        System.exit(0);
-
+        ConstraintLayout cont_la = findViewById(R.id.la_2);
+        Button btn_yes = findViewById(R.id.bt_yes);
+        Button btn_no = findViewById(R.id.bt_no);
+        ImageView img_btn = findViewById(R.id.button_exit);
+        Animation b_back = AnimationUtils.loadAnimation(this, R.anim.btn_back);
+        img_btn.startAnimation(b_back);
+        cont_la.setVisibility(View.VISIBLE);
+        btn_yes.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.exit(0);
+            }
+        });
+        btn_no.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cont_la.setVisibility(View.GONE);
+            }
+        });
     }
 
     public void gameClick(View view) {
@@ -68,11 +88,8 @@ public class Menu extends Activity {
     }
 
     //Систетмная кнопка
-
-
     @Override
     public void onBackPressed() {
-
         if(backPressedTime + 2000 >System.currentTimeMillis())
         {
             backToast.cancel();

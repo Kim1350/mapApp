@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -77,36 +81,8 @@ public class GameLevels extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gamelevels);
-
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        Button btn_back = findViewById(R.id.btn_back);
-
-        ConstraintLayout constraintLayout = findViewById(R.id.regionInfo);
-
-        TextView regionName  = findViewById(R.id.txtRegionName);
-        TextView regionInfo = findViewById(R.id.txtRegionInfo);
-
-        RichPathView richPathView = findViewById(R.id.map);
-        richPathView.setOnPathClickListener(new RichPath.OnPathClickListener() {
-            @Override
-            public void onClick(RichPath richPath) {
-                if (canClick && Arrays.asList(regionNumbers).contains(richPath.getName())) {
-                    canClick = false;
-
-                    constraintLayout.setVisibility(View.VISIBLE);
-
-                    btn_back.setVisibility(View.GONE);
-
-                    int index = Arrays.asList(regionNumbers).indexOf(richPath.getName());
-
-                    regionName.setText(regions[index]);
-                    regionInfo.setText(regionInformations[index]);
-                }
-            }
-        });
-
     }
     //Системная кнопка
     @Override
@@ -117,19 +93,273 @@ public class GameLevels extends Activity {
         finish();
     }
 
+
+    public void CloseInfo(View view) {
+        ConstraintLayout constraintLayout = findViewById(R.id.regionInfo);
+        constraintLayout.setVisibility(View.GONE);
+        ConstraintLayout sp_reg = findViewById(R.id.spisok_regions);
+        sp_reg.setVisibility(View.VISIBLE);
+        ImageView bt_back = findViewById(R.id.bt_back);
+        bt_back.setVisibility(View.VISIBLE);
+    }
+
     public void Back(View view) {
+        ImageView img_btn = findViewById(R.id.bt_back);
+        Animation b_back = AnimationUtils.loadAnimation(this, R.anim.btn_back);
+        img_btn.startAnimation(b_back);
         Intent intent = new Intent(GameLevels.this, Menu.class);
         startActivity(intent);
         finish();
     }
-
-    public void CloseInfo(View view) {
-        canClick = true;
-
+    public void onClick(View v) {
+        TextView regionName  = findViewById(R.id.txtRegionName);
+        TextView regionInfo = findViewById(R.id.txtRegionInfo);
+        ImageView bt_back = findViewById(R.id.bt_back);
         ConstraintLayout constraintLayout = findViewById(R.id.regionInfo);
-        constraintLayout.setVisibility(View.GONE);
+        ConstraintLayout sp_reg = findViewById(R.id.spisok_regions);
+        switch (v.getId()) {
+            case R.id.reg_1:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[0]);
+                regionInfo.setText(regionInformations[0]);
+                break;
+            case R.id.reg_2:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[1]);
+                regionInfo.setText(regionInformations[1]);
+                break;
 
-        Button btn_back = findViewById(R.id.btn_back);
-        btn_back.setVisibility(View.VISIBLE);
+            case R.id.reg_3:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[2]);
+                regionInfo.setText(regionInformations[2]);
+                break;
+            case R.id.reg_4:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[3]);
+                regionInfo.setText(regionInformations[3]);
+                break;
+            case R.id.reg_5:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[4]);
+                regionInfo.setText(regionInformations[4]);
+                break;
+            case R.id.reg_6:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[5]);
+                regionInfo.setText(regionInformations[5]);
+                break;
+            case R.id.reg_7:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[6]);
+                regionInfo.setText(regionInformations[6]);
+                break;
+            case R.id.reg_8:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[7]);
+                regionInfo.setText(regionInformations[7]);
+                break;
+            case R.id.reg_9:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[8]);
+                regionInfo.setText(regionInformations[8]);
+                break;
+            case R.id.reg_10:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[9]);
+                regionInfo.setText(regionInformations[9]);
+                break;
+            case R.id.reg_11:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[10]);
+                regionInfo.setText(regionInformations[10]);
+                break;
+            case R.id.reg_12:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[11]);
+                regionInfo.setText(regionInformations[11]);
+                break;
+            case R.id.reg_13:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[12]);
+                regionInfo.setText(regionInformations[12]);
+                break;
+            case R.id.reg_14:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[13]);
+                regionInfo.setText(regionInformations[13]);
+                break;
+            case R.id.reg_15:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[14]);
+                regionInfo.setText(regionInformations[14]);
+                break;
+            case R.id.reg_16:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[15]);
+                regionInfo.setText(regionInformations[15]);
+                break;
+            case R.id.reg_17:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[16]);
+                regionInfo.setText(regionInformations[16]);
+                break;
+            case R.id.reg_18:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[17]);
+                regionInfo.setText(regionInformations[17]);
+                break;
+            case R.id.reg_19:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[18]);
+                regionInfo.setText(regionInformations[18]);
+                break;
+            case R.id.reg_20:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[19]);
+                regionInfo.setText(regionInformations[19]);
+                break;
+            case R.id.reg_21:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[20]);
+                regionInfo.setText(regionInformations[20]);
+                break;
+            case R.id.reg_22:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[21]);
+                regionInfo.setText(regionInformations[21]);
+                break;
+            case R.id.reg_23:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[22]);
+                regionInfo.setText(regionInformations[22]);
+                break;
+            case R.id.reg_24:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[23]);
+                regionInfo.setText(regionInformations[23]);
+                break;
+            case R.id.reg_25:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[24]);
+                regionInfo.setText(regionInformations[24]);
+                break;
+            case R.id.reg_26:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[25]);
+                regionInfo.setText(regionInformations[25]);
+                break;
+            case R.id.reg_27:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[26]);
+                regionInfo.setText(regionInformations[26]);
+                break;
+            case R.id.reg_28:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[27]);
+                regionInfo.setText(regionInformations[27]);
+                break;
+            case R.id.reg_29:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[28]);
+                regionInfo.setText(regionInformations[28]);
+                break;
+            case R.id.reg_30:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[29]);
+                regionInfo.setText(regionInformations[29]);
+                break;
+            case R.id.reg_31:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[30]);
+                regionInfo.setText(regionInformations[30]);
+                break;
+            case R.id.reg_32:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[31]);
+                regionInfo.setText(regionInformations[31]);
+                break;
+            case R.id.reg_33:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[32]);
+                regionInfo.setText(regionInformations[32]);
+                break;
+            case R.id.reg_34:
+                sp_reg.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.VISIBLE);
+                bt_back.setVisibility(View.GONE);
+                regionName.setText(regions[33]);
+                regionInfo.setText(regionInformations[33]);
+                break;
+
+            default:
+                throw new RuntimeException("Unknow button ID");
+        }
     }
 }

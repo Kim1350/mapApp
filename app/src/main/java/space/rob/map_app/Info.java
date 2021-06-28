@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class Info extends Activity {
 
@@ -31,4 +34,12 @@ public class Info extends Activity {
         finish();
     }
 
+    public void info_back(View view) {
+        ImageView img_btn = findViewById(R.id.btn_info_back);
+        Animation b_back = AnimationUtils.loadAnimation(this, R.anim.btn_back);
+        img_btn.startAnimation(b_back);
+        Intent intent = new Intent(Info.this, Menu.class);
+        startActivity(intent);
+        finish();
+    }
 }

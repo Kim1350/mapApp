@@ -10,6 +10,9 @@ import android.app.Activity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -76,7 +79,7 @@ public class QuizActivity extends Activity {
                                 .fillColor((255 & 0xff) << 24 | (50 & 0xff) << 16 | (128 & 0xff) << 8 | (50 & 0xff))
                                 .start();
                     }
-                } else if (!richPath.getName().equals(regionNumbers[randomNumber]) && canClick) {
+                } else if (!richPath.getName().equals(regionNumbers[randomNumber]))  {
                     if(richPath.getName().equals("Region_6")) {
                         for(int i = 0; i < 15; i++) {
                             RichPath richPathRegion6 = richPathView.findRichPathByIndex(i);
@@ -109,6 +112,15 @@ public class QuizActivity extends Activity {
     @Override
     public void onBackPressed()
     {
+        Intent intent = new Intent(QuizActivity.this, Menu.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void Back(View view) {
+        ImageView img_btn = findViewById(R.id.b_back);
+        Animation b_back = AnimationUtils.loadAnimation(this, R.anim.btn_back);
+        img_btn.startAnimation(b_back);
         Intent intent = new Intent(QuizActivity.this, Menu.class);
         startActivity(intent);
         finish();
